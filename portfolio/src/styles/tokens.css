@@ -1,0 +1,93 @@
+:root {
+
+  /* ========= COLORS ========= */
+
+  --color-primary:
+  --color-secondary:
+  --color-accent:
+
+  --color-background:
+  --color-surface:
+  --color-card:
+  --color-border:
+
+  --color-text-primary:
+  --color-text-secondary:
+  --color-muted:
+
+  --color-success:
+  --color-warning:
+  --color-error:
+
+  /* ========= TYPOGRAPHY ========= */
+
+  --font-family:
+  --font-size-display:
+  --font-size-h1:
+  --font-size-h2:
+  --font-size-h3:
+  --font-size-body:
+  --font-size-small:
+
+  --font-weight-regular:
+  --font-weight-medium:
+  --font-weight-semibold:
+  --font-weight-bold:
+
+  /* ========= SPACING ========= */
+
+  --space-1:
+  --space-2:
+  --space-3:
+  --space-4:
+  --space-5:
+  --space-6:
+  --space-8:
+  --space-10:
+  --space-12:
+  --space-16:
+
+  /* ========= BORDER RADIUS ========= */
+
+  --radius-sm:
+  --radius-md:
+  --radius-lg:
+  --radius-xl:
+  --radius-pill:
+
+  /* ========= SHADOWS ========= */
+
+  --shadow-sm:
+  --shadow-md:
+  --shadow-lg:
+
+  --shadow-glass:
+  --shadow-glow-blue:
+  --shadow-glow-purple:
+
+  /* ========= GLASS ========= */
+
+  --glass-bg:
+  --glass-border:
+  --glass-blur:
+
+  /* ========= GRADIENTS ========= */
+
+  --gradient-primary:
+  --gradient-secondary:
+
+  /* ========= MOTION ========= */
+
+  --duration-fast:
+  --duration-normal:
+  --duration-slow:
+
+  --ease-default:
+  --ease-bounce:
+
+  /* ========= LAYOUT ========= */
+
+  --container-width:
+  --navbar-height:
+  --section-padding:
+}
