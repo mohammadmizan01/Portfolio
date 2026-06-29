@@ -1,29 +1,75 @@
-* {
+/* Reset */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Root */
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+
   background: var(--color-background);
   color: var(--color-text-primary);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-img {
+/* Media */
+
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-button,
+/* Forms */
+
 input,
-textarea {
+button,
+textarea,
+select {
   font: inherit;
 }
+
+/* Links */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Lists */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Buttons */
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+/* Selection */
 
 ::selection {
   background: var(--color-primary);
@@ -32,6 +78,6 @@ textarea {
 
 /* Scrollbar */
 
-/* Blueprint background */
+/* Blueprint Background */
 
-/* Utility classes */
+/* Utility Classes */
