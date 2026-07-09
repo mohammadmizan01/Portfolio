@@ -76,6 +76,13 @@ button {
   color: white;
 }
 
+.glass-navbar {
+  background: var(--glass-background);
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
 /* Scrollbar */
 
 /* Blueprint Background */
