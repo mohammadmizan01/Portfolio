@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
 import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
+
 import { NAV_LINKS } from "@/constants/navigation";
 import { cn } from "@/utils/cn";
+
 import useScrolled from "@/hooks/useScrolled";
-import {Menu, X} from "lucide-react";
 import useActiveSection from "@/hooks/useActiveSection";
+
+import Logo from "./Logo";
+import NavLinks from "./NavLinks";
+import SocialLinks from "./SocialLinks";
+import ThemeToggle from "./ThemeToggle";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const isScrolled = useScrolled();
@@ -17,45 +23,44 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-(--z-navbar) transition-all duration-(--duration-normal)",
+        "fixed inset-x-0 top-0 z-(--z-navbar) transition-all duration-300",
         isScrolled && "glass-navbar"
       )}
     >
       <Container>
         <nav className="flex h-(--navbar-height) items-center justify-between">
-          <Link
-              to="/"
-              className="shrink-0 whitespace-nowrap text-(length:--font-size-h3) font-bold tracking-tight text-(--color-text-primary)"
-            >
-              {"<Mizan />"}
-            </Link>
 
-          <ul className="hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                    className={cn(
-                      "font-medium transition-colors duration-(--duration-normal)",
-                      activeSection === link.id
-                        ? "text-(--color-primary)"
-                        : "text-(--color-text-secondary) hover:text-(--color-primary)"
-                    )}                
-                  >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <Logo />
 
-          <Button size="sm" asChild>
-            <a     
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-            Resume</a>
-          </Button>
+          <NavLinks activeSection={activeSection} />
+
+          <div className="flex items-center gap-3">
+
+            <div className="hidden items-center gap-3 lg:flex">
+
+              <SocialLinks />
+
+              <ThemeToggle />
+
+              <a
+                href="/Mizan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="primary"
+                  size="sm"
+                >
+                  Resume
+                </Button>
+              </a>
+
+            </div>
+
+            <MobileMenu />
+
+          </div>
+
         </nav>
       </Container>
     </header>

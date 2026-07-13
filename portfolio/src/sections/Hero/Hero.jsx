@@ -1,20 +1,29 @@
 import Container from "@/components/layout/Container";
-import HeroLeft from "./HeroLeft";
-import HeroRight from "./HeroRight";
+
+import HeroBackground from "./HeroBackground";
+import HeroLeft from "./HeroLeft/HeroLeft";
+import HeroRight from "./HeroRight/HeroRight";
 
 const Hero = () => {
   return (
     <section
-      id="hero"
-      className="relative overflow-hidden pt-20"
+      id="home"
+      className="relative overflow-hidden pt-(--navbar-height)"
     >
-      <div className="absolute left-0 top-20 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+      <HeroBackground />
 
-      <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-
-      <Container>
-        <div className="grid min-h-screen items-center gap-16 lg:grid-cols-[45%_55%]">
+      <Container className="relative z-10">
+        <div
+          className="
+            grid min-h-[calc(100svh-var(--navbar-height))]
+            items-center gap-10 py-8
+            lg:grid-cols-[48%_52%] lg:gap-12 lg:py-0
+            xl:grid-cols-[46%_54%]
+            2xl:min-h-[calc(100vh-var(--navbar-height))]
+          "
+        >
           <HeroLeft />
+
           <HeroRight />
         </div>
       </Container>

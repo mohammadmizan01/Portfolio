@@ -1,23 +1,37 @@
 import { cn } from "@/utils/cn";
 
 const variants = {
-  primary:
-    "bg-blue-600 text-white hover:bg-blue-700",
+  primary: `
+    bg-(--color-primary)
+    text-white
+    hover:brightness-110
+  `,
 
-  secondary:
-    "bg-slate-800 text-white hover:bg-slate-700",
+  secondary: `
+    bg-(--color-surface)
+    text-(--color-text-primary)
+    hover:brightness-110
+  `,
 
-  outline:
-    "border border-slate-300 bg-transparent text-white hover:bg-slate-800",
+  outline: `
+    border
+    border-(--color-border)
+    bg-transparent
+    text-(--color-text-primary)
+    hover:bg-(--glass-background)
+  `,
 
-  ghost:
-    "bg-transparent text-white hover:bg-slate-800",
+  ghost: `
+    bg-transparent
+    text-(--color-text-primary)
+    hover:bg-(--glass-background)
+  `,
 };
 
 const sizes = {
-  sm: "h-9 px-3 text-sm",
-  md: "h-10 px-4 text-base",
-  lg: "h-12 px-6 text-lg",
+  sm: "h-9 px-4 text-sm",
+  md: "h-10 px-5 text-base",
+  lg: "h-12 px-7 text-base",
 };
 
 const Button = ({
@@ -30,7 +44,25 @@ const Button = ({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50",
+        `
+        inline-flex
+        items-center
+        justify-center
+        rounded-xl
+        font-medium
+
+        transition-all
+        duration-300
+
+        cursor-pointer
+
+        focus:outline-none
+        focus:ring-2
+        focus:ring-(--color-primary)
+
+        disabled:pointer-events-none
+        disabled:opacity-50
+        `,
         variants[variant],
         sizes[size],
         className
