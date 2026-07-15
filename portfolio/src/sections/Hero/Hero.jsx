@@ -1,32 +1,50 @@
-import Container from "@/components/layout/Container";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 import HeroBackground from "./HeroBackground";
 import HeroLeft from "./HeroLeft/HeroLeft";
 import HeroRight from "./HeroRight/HeroRight";
 
 const Hero = () => {
+  const heroRef = useRef(null);
+
+  const isInView = useInView(heroRef, {
+    amount: 0.35,
+  });
+
   return (
     <section
       id="home"
-      className="relative overflow-hidden pt-(--navbar-height)"
+      ref={heroRef}
+      aria-label="Hero Section"
+      className="relative overflow-hidden"
     >
-      <HeroBackground />
+      <div className="mx-auto flex min-h-screen w-full max-w-[1600px] items-center px-6 pt-28 pb-16 sm:px-8 lg:px-10 xl:px-14">
+        <HeroBackground
+          isInView={isInView}
+        />
 
-      <Container className="relative z-10">
         <div
           className="
-            grid min-h-[calc(100svh-var(--navbar-height))]
-            items-center gap-10 py-8
-            lg:grid-cols-[48%_52%] lg:gap-12 lg:py-0
-            xl:grid-cols-[46%_54%]
-            2xl:min-h-[calc(100vh-var(--navbar-height))]
-          "
+          relative
+          z-10
+          grid
+          w-full
+          items-center
+          gap-14
+          lg:grid-cols-2
+          xl:gap-20
+        "
         >
-          <HeroLeft />
+          <HeroLeft
+            isInView={isInView}
+          />
 
-          <HeroRight />
+          <HeroRight
+            isInView={isInView}
+          />
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

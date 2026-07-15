@@ -1,134 +1,154 @@
 import { motion } from "framer-motion";
-import {
-  FiExternalLink,
-  FiGithub,
-  FiCode,
-  FiTrendingUp,
-} from "react-icons/fi";
+// import {
+//   FaReact,
+//   FaNodeJs,
+//   FaGithub,
+// } from "react-icons/fa";
+
+// import {
+//   SiMongodb,
+//   SiExpress,
+//   SiTailwindcss,
+// } from "react-icons/si";
+
+// const technologies = [
+//   {
+//     name: "React",
+//     icon: FaReact,
+//     color: "text-cyan-500",
+//   },
+//   {
+//     name: "Node.js",
+//     icon: FaNodeJs,
+//     color: "text-green-500",
+//   },
+//   {
+//     name: "Express",
+//     icon: SiExpress,
+//     color: "text-slate-700 dark:text-white",
+//   },
+//   {
+//     name: "MongoDB",
+//     icon: SiMongodb,
+//     color: "text-green-500",
+//   },
+//   {
+//     name: "Tailwind",
+//     icon: SiTailwindcss,
+//     color: "text-sky-500",
+//   },
+//   {
+//     name: "GitHub",
+//     icon: FaGithub,
+//     color: "text-slate-800 dark:text-white",
+//   },
+// ];
 
 const HeroBrowserContent = () => {
   return (
-    <div className="space-y-6 p-6 lg:p-7">
+    <div className="px-8 py-8">
 
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: .6,
+          delay: .3,
+        }}
+      >
+        <p className="text-sm font-medium text-blue-500">
+          Full Stack Developer
+        </p>
 
-        <div>
+        <h1 className="mt-3 text-4xl font-bold leading-tight text-(--color-text-primary)">
+          Building Fast &
+          <br />
+          Scalable Web Applications
+        </h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: .5 }}
-            className="text-2xl font-bold text-(--color-text-primary)"
-          >
-            Mohammad Mizan
-          </motion.h2>
+        <p className="mt-5 max-w-xl leading-7 text-(--color-text-secondary)">
+          I create modern web applications using the MERN Stack with
+          performance, accessibility, scalability and exceptional user
+          experience in mind.
+        </p>
+      </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ delay: .1, duration: .5 }}
-            className="mt-1 text-sm text-(--color-text-secondary)"
-          >
-            Full Stack Developer
-          </motion.p>
-
-        </div>
+      <div className="mt-10 grid grid-cols-2 gap-4">
 
         <motion.div
-          whileHover={{ rotate: 15, scale: 1.08 }}
-          className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-violet-600 text-white shadow-xl shadow-blue-500/25"
+          whileHover={{
+            y: -5,
+            scale: 1.02,
+          }}
+          className="rounded-2xl border border-(--color-border) p-5"
         >
-          <FiCode size={26} />
+          <p className="text-sm text-(--color-text-secondary)">
+            Projects
+          </p>
+
+          <h3 className="mt-2 text-3xl font-bold">
+            25+
+          </h3>
+        </motion.div>
+
+        <motion.div
+          whileHover={{
+            y: -5,
+            scale: 1.02,
+          }}
+          className="rounded-2xl border border-(--color-border) p-5"
+        >
+          <p className="text-sm text-(--color-text-secondary)">
+            Experience
+          </p>
+
+          <h3 className="mt-2 text-3xl font-bold">
+            2+
+          </h3>
         </motion.div>
 
       </div>
 
-      <motion.div
-        whileHover={{ y: -5 }}
-        className="rounded-2xl border border-(--color-border) bg-(--glass-background) p-5 backdrop-blur-xl"
-      >
+      {/* <div className="mt-10 flex flex-wrap gap-3">
 
-        <div className="mb-4 flex items-center justify-between">
+        {technologies.map(({ name, icon: Icon, color }) => (
+          <motion.div
+            key={name}
+            whileHover={{
+              y: -4,
+              scale: 1.05,
+            }}
+            className="
+              flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-(--color-border)
+              px-4
+              py-2
+              bg-(--glass-background)
+            "
+          >
+            <Icon
+              size={18}
+              className={color}
+            />
 
-          <span className="font-semibold text-(--color-text-primary)">
-            Portfolio Overview
-          </span>
+            <span className="text-sm font-medium">
+              {name}
+            </span>
 
-          <FiTrendingUp className="text-green-500" />
+          </motion.div>
+        ))}
 
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-
-          <div className="rounded-xl bg-white/5 p-4">
-            <p className="text-xs text-(--color-text-secondary)">
-              Projects
-            </p>
-
-            <h3 className="mt-2 text-2xl font-bold">
-              25+
-            </h3>
-          </div>
-
-          <div className="rounded-xl bg-white/5 p-4">
-            <p className="text-xs text-(--color-text-secondary)">
-              Tech Stack
-            </p>
-
-            <h3 className="mt-2 text-2xl font-bold">
-              MERN
-            </h3>
-          </div>
-
-          <div className="rounded-xl bg-white/5 p-4">
-            <p className="text-xs text-(--color-text-secondary)">
-              Experience
-            </p>
-
-            <h3 className="mt-2 text-2xl font-bold">
-              2+
-            </h3>
-          </div>
-
-          <div className="rounded-xl bg-white/5 p-4">
-            <p className="text-xs text-(--color-text-secondary)">
-              Status
-            </p>
-
-            <h3 className="mt-2 font-semibold text-green-500">
-              Available
-            </h3>
-          </div>
-
-        </div>
-
-      </motion.div>
-
-      <div className="flex gap-3">
-
-        <motion.button
-          whileHover={{ y: -3 }}
-          whileTap={{ scale: .96 }}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 font-medium text-white hover:bg-blue-700"
-        >
-          <FiExternalLink />
-
-          Live Demo
-        </motion.button>
-
-        <motion.button
-          whileHover={{ y: -3 }}
-          whileTap={{ scale: .96 }}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-(--color-border) bg-(--glass-background) py-3 font-medium backdrop-blur-xl"
-        >
-          <FiGithub />
-
-          GitHub
-        </motion.button>
-
-      </div>
+      </div> */}
 
     </div>
   );

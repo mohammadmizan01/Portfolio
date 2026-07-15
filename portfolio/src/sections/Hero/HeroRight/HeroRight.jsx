@@ -1,30 +1,20 @@
-import { motion } from "framer-motion";
 import HeroBrowser from "./HeroBrowser";
-import HeroOrbit from "./HeroOrbit";
 import HeroFloatingIcons from "./HeroFloatingIcons";
 import HeroInfoCards from "./HeroInfoCards";
+import HeroOrbit from "./HeroOrbit";
 import HeroParticles from "./HeroParticles";
 
-const HeroRight = () => {
+const HeroRight = ({ isInView }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 60 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false, amount: .25 }}
-      transition={{ duration: .85, ease: [0.16, 1, 0.3, 1] }}
-      className="relative flex min-h-[620px] items-center justify-center lg:min-h-[700px] xl:min-h-[760px]"
+    <div
+      className=" relative mx-auto flex w-full max-w-190 flex-col items-center lg:-translate-y-10 xl:-translate-y-24"
     >
-      <HeroParticles />
-
-      <HeroOrbit />
-
-      <HeroBrowser/>
-
-      <HeroFloatingIcons />
-
-      <HeroInfoCards />
-
-    </motion.div>
+      <HeroParticles isInView={isInView} />
+      <HeroOrbit isInView={isInView} />
+      <HeroFloatingIcons isInView={isInView} />
+      <HeroBrowser isInView={isInView} />
+      <HeroInfoCards isInView={isInView} />
+    </div>
   );
 };
 

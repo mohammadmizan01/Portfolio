@@ -1,70 +1,89 @@
 import { motion } from "framer-motion";
 import {
-  FiActivity,
-  FiClock,
-  FiCpu,
-  FiCheckCircle,
-} from "react-icons/fi";
-
-const items = [
-  {
-    icon: FiCheckCircle,
-    label: "Status",
-    value: "Online",
-    color: "text-green-500",
-  },
-  {
-    icon: FiCpu,
-    label: "Stack",
-    value: "MERN",
-    color: "text-blue-500",
-  },
-  {
-    icon: FiActivity,
-    label: "Performance",
-    value: "99%",
-    color: "text-cyan-400",
-  },
-  {
-    icon: FiClock,
-    label: "Updated",
-    value: "Live",
-    color: "text-violet-400",
-  },
-];
+  FaGithub,
+  FaCodeBranch,
+} from "react-icons/fa";
 
 const HeroBrowserFooter = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 border-t border-(--color-border) bg-white/5 p-5 lg:grid-cols-4">
+    <div
+      className="
+        flex
+        items-center
+        justify-between
+        border-t
+        border-(--color-border)
+        bg-(--glass-background)
+        px-8
+        py-5
+        backdrop-blur-xl
+      "
+    >
+      <div className="flex items-center gap-3">
 
-      {items.map(({ icon: Icon, label, value, color }) => (
-        <motion.div
-          key={label}
-          whileHover={{ y: -4, scale: 1.03 }}
-          transition={{ duration: .2 }}
-          className="rounded-xl border border-(--color-border) bg-(--glass-background) p-4 backdrop-blur-xl"
+        <div
+          className="
+            flex
+            h-11
+            w-11
+            items-center
+            justify-center
+            rounded-xl
+            bg-linear-to-br
+            from-slate-900
+            to-slate-700
+            text-white
+          "
         >
+          <FaGithub size={20} />
+        </div>
 
-          <div className="flex items-center gap-2">
+        <div>
 
-            <Icon
-              size={17}
-              className={color}
-            />
+          <h4 className="text-sm font-semibold text-(--color-text-primary)">
+            GitHub
+          </h4>
 
-            <span className="text-xs text-(--color-text-secondary)">
-              {label}
-            </span>
-
-          </div>
-
-          <p className="mt-3 text-lg font-semibold text-(--color-text-primary)">
-            {value}
+          <p className="text-xs text-(--color-text-secondary)">
+            Open Source Portfolio
           </p>
 
-        </motion.div>
-      ))}
+        </div>
 
+      </div>
+
+      <motion.div
+        whileHover={{
+          y: -3,
+          scale: 1.03,
+        }}
+        transition={{
+          duration: .25,
+        }}
+        className="
+          flex
+          items-center
+          gap-3
+          rounded-full
+          border
+          border-(--color-border)
+          bg-(--color-background)
+          px-5
+          py-2.5
+        "
+      >
+        <FaCodeBranch
+          size={14}
+          className="text-green-500"
+        />
+
+        <span className="text-sm font-medium text-(--color-text-primary)">
+          main
+        </span>
+
+        <span className="h-2 w-2 rounded-full bg-green-500" />
+
+      </motion.div>
     </div>
   );
 };

@@ -11,7 +11,6 @@ import {
   SiMongodb,
   SiTailwindcss,
   SiJavascript,
-  SiFramer,
 } from "react-icons/si";
 
 const technologies = [
@@ -21,8 +20,7 @@ const technologies = [
   { name: "MongoDB", icon: SiMongodb, color: "text-green-400" },
   { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-sky-400" },
-  { name: "Framer", icon: SiFramer, color: "text-violet-400 dark:text-white" },
-  { name: "GitHub", icon: FaGithub, color: "text-gray-700 dark:text-white" },
+  { name: "GitHub", icon: FaGithub, color: "text-black dark:text-white" },
 ];
 
 const container = {

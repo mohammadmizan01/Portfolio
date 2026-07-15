@@ -1,81 +1,49 @@
-import { motion, useAnimationControls, useInView } from "framer-motion";
-import { useEffect, useMemo, useRef } from "react";
+import { motion } from "framer-motion";
 
-const HeroParticles = () => {
-  const ref = useRef(null);
+const particles = [
+  { id: 1, size: 6, left: "8%", top: "76%", delay: 0, duration: 8 },
+  { id: 2, size: 5, left: "18%", top: "88%", delay: .5, duration: 9 },
+  { id: 3, size: 4, left: "28%", top: "68%", delay: 1, duration: 8.5 },
+  { id: 4, size: 5, left: "42%", top: "84%", delay: .8, duration: 10 },
+  { id: 5, size: 6, left: "58%", top: "58%", delay: 1.2, duration: 9 },
+  { id: 6, size: 5, left: "70%", top: "48%", delay: .6, duration: 8 },
+  { id: 7, size: 4, left: "82%", top: "34%", delay: 1.5, duration: 9.5 },
+  { id: 8, size: 5, left: "90%", top: "22%", delay: .9, duration: 8.5 },
+];
 
-  const isInView = useInView(ref, {
-    amount: .2,
-  });
-
-  const controls = useAnimationControls();
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("animate");
-    } else {
-      controls.stop();
-    }
-  }, [isInView, controls]);
-
-  const particles = useMemo(
-    () =>
-      Array.from({ length: 22 }, (_, i) => ({
-        id: i,
-        size: Math.random() * 7 + 3,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        duration: Math.random() * 6 + 8,
-        delay: Math.random() * 2,
-        opacity: Math.random() * .35 + .15,
-      })),
-    []
-  );
-
+const HeroParticles = ({ isInView }) => {
   return (
     <div
-      ref={ref}
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block"
     >
-
-      {particles.map(
-        ({
-          id,
-          size,
-          left,
-          top,
-          duration,
-          delay,
-          opacity,
-        }) => (
-          <motion.span
-            key={id}
-            animate={controls}
-            variants={{
-              animate: {
-                y: [0, -40, 0],
-                x: [0, 12, -12, 0],
-                opacity: [opacity, opacity + .3, opacity],
-                scale: [1, 1.3, 1],
-              },
-            }}
-            transition={{
-              duration,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay,
-            }}
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              width: size,
-              height: size,
-            }}
-            className="absolute rounded-full bg-blue-400/30 blur-[1px]"
-          />
-        )
-      )}
-
+      {particles.map((particle) => (
+        <motion.span
+          key={particle.id}
+          animate={
+            isInView
+              ? {
+                  y: [0, -14, 0],
+                  opacity: [.15, .5, .15],
+                  scale: [1, 1.15, 1],
+                }
+              : {}
+          }
+          transition={{
+            duration: particle.duration,
+            delay: particle.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            width: particle.size,
+            height: particle.size,
+            left: particle.left,
+            top: particle.top,
+          }}
+          className="absolute rounded-full bg-linear-to-r from-blue-500 to-cyan-400 shadow-[0_0_14px_rgba(59,130,246,.28)]"
+        />
+      ))}
     </div>
   );
 };
