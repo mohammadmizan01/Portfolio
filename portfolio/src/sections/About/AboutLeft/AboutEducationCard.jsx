@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
-import { HiAcademicCap } from "react-icons/hi2";
+import {
+  HiAcademicCap,
+  HiCalendarDays,
+  HiMapPin,
+} from "react-icons/hi2";
 
 const AboutEducationCard = () => {
   return (
@@ -13,23 +17,17 @@ const AboutEducationCard = () => {
         y: 0,
       }}
       viewport={{
-        once: true,
-        amount: .3,
+        once: false,
+        amount: 0.3,
       }}
       transition={{
-        duration: .6,
-        delay: .2,
+        duration: 0.7,
       }}
       whileHover={{
         y: -6,
-        scale: 1.02,
       }}
       className="
-        w-full
-        max-w-xl
-
         overflow-hidden
-
         rounded-3xl
 
         border
@@ -37,70 +35,151 @@ const AboutEducationCard = () => {
 
         bg-(--glass-background)
 
-        p-6
-
         backdrop-blur-2xl
 
-        shadow-[0_25px_70px_rgba(15,23,42,.18)]
+        shadow-(--shadow-glass)
       "
     >
 
-      <div className="flex items-start gap-5">
+      <div
+        className="
+          h-1
 
-        <div
-          className="
-            flex
-            h-14
-            w-14
-            shrink-0
-            items-center
-            justify-center
+          bg-linear-to-r
+          from-(--color-primary)
+          via-(--color-accent)
+          to-(--color-secondary)
+        "
+      />
 
-            rounded-2xl
+      <div className="p-7">
 
-            bg-linear-to-br
-            from-blue-500
-            to-cyan-500
+        <div className="flex items-center gap-4">
 
-            text-white
-          "
-        >
-          <HiAcademicCap size={28} />
+          <div
+            className="
+              flex
+              h-14
+              w-14
+
+              items-center
+              justify-center
+
+              rounded-2xl
+
+              bg-(--color-background)
+
+              shadow-(--shadow-blue)
+            "
+          >
+
+            <HiAcademicCap
+              size={28}
+              className="text-(--color-primary)"
+            />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-(--color-text-secondary)">
+              Education
+            </p>
+
+            <h3
+              className="
+                mt-1
+
+                text-xl
+                font-semibold
+
+                text-(--color-text-primary)
+              "
+            >
+              B.Tech
+            </h3>
+
+          </div>
+
         </div>
 
-        <div className="flex-1">
+        <div className="mt-8 space-y-5">
 
-          <span
-            className="
-              text-sm
-              font-medium
+          <div className="flex items-start gap-3">
 
-              text-blue-400
-            "
-          >
-            EDUCATION
-          </span>
+            <HiAcademicCap
+              size={18}
+              className="
+                mt-1
+                text-(--color-primary)
+              "
+            />
 
-          <h3
-            className="
-              mt-2
+            <div>
 
-              text-xl
-              font-semibold
+              <p className="text-sm text-(--color-text-secondary)">
+                Degree
+              </p>
 
-              text-(--color-text-primary)
-            "
-          >
-            Bachelor of Technology
-          </h3>
+              <h4 className="font-medium text-(--color-text-primary)">
+                Bachelor of Technology
+              </h4>
 
-          <p className="mt-1 text-(--color-text-secondary)">
-            Computer Science & Engineering
-          </p>
+              <p className="text-sm text-(--color-text-secondary)">
+                Computer Science & Engineering
+              </p>
 
-          <p className="mt-3 text-sm text-(--color-text-secondary)">
-            Graduating in <span className="font-semibold text-(--color-text-primary)">2026</span>
-          </p>
+            </div>
+
+          </div>
+
+          <div className="flex items-start gap-3">
+
+            <HiCalendarDays
+              size={18}
+              className="
+                mt-1
+                text-(--color-primary)
+              "
+            />
+
+            <div>
+
+              <p className="text-sm text-(--color-text-secondary)">
+                Duration
+              </p>
+
+              <h4 className="font-medium text-(--color-text-primary)">
+                2022 — Present
+              </h4>
+
+            </div>
+
+          </div>
+
+          <div className="flex items-start gap-3">
+
+            <HiMapPin
+              size={18}
+              className="
+                mt-1
+                text-(--color-primary)
+              "
+            />
+
+            <div>
+
+              <p className="text-sm text-(--color-text-secondary)">
+                Location
+              </p>
+
+              <h4 className="font-medium text-(--color-text-primary)">
+                India
+              </h4>
+
+            </div>
+
+          </div>
 
         </div>
 
